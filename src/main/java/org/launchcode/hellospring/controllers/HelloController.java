@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class HelloController {
 
@@ -50,6 +53,18 @@ public class HelloController {
         String message = "Goodbye, Spring!";
         model.addAttribute("greeting", message);
         return "hello" ;
+    }
+
+    @GetMapping("hello-names")
+    public String helloNames(Model model){
+        List<String> names = new ArrayList<>();
+        names.add("LaunchCoder");
+        names.add("Jessica");
+        names.add("Juanito");
+        names.add("Jackson");
+        names.add("Andreas");
+        model.addAttribute("names", names);
+        return "hello-list";
     }
 
 }
